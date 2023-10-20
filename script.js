@@ -4,7 +4,7 @@ let string1 = "0";
 let string2 = "0";
 let string3 = "";
 let string4 = "";
-let nums = [];
+let nums = ['1'];
 
 
 function ac(){
@@ -42,6 +42,15 @@ function addVal(val){
         document.getElementById("clear").innerHTML = "BC";
         console.log("Reset");
     }
+    else if(document.getElementById("quest").innerHTML === 'Error'){
+        string0 = val;
+        string1 = val;
+        string2 = val;
+        string3 = "";
+        nums = [];
+        document.getElementById("clear").innerHTML = "BC";
+        console.log("Reset");
+    }
     else if((document.getElementById("quest").innerHTML === "0" && val != '0')){
         document.getElementById("clear").innerHTML = "BC";
         string0 = val;
@@ -56,6 +65,8 @@ function addVal(val){
     }
     else if(document.getElementById("quest").innerHTML === "0" && val === '0'){
         document.getElementById("clear").innerHTML = "BC";
+        string0 += "0"
+        nums = [];
     }
     else{
         string0 += val;
@@ -95,12 +106,16 @@ function operation(op){
 function percent(){
     string0 += '%'
     string1 += '%'
-    string2 += "*"+String(eval(nums[0]*.01));
+    if(nums.includes())
+    string2 = "(" + string2 + "*"+String(eval(1*.01)+")");
     document.getElementById("quest").innerHTML = string1;
 }
 
 function equ(){
-    if(string1!=string4){
+    if((string0+" ").includes('÷0 ')){
+        document.getElementById("quest").innerHTML = 'Error';
+    }
+    else if(string1!=string4){
         nums.push(string2);
         for(let i = 0; i<nums.length; i++){
             string3 += nums[i];
