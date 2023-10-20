@@ -16,30 +16,30 @@
             </figure>
 
             <section id = grid>
-                <button id = 'leftP' class="op" onclick="addLeftP()"> <p>(</p> </button>
-                <button id = 'rightP' class="op" onclick="addRightP()"> <p>)</p> </button>
-                <button id = 'perc' class="op"> <p>%</p> </button>
+                <button id = 'leftP' class="op" onclick="addVal('(')"> <p>(</p> </button>
+                <button id = 'rightP' class="op" onclick="addVal(')')"> <p>)</p> </button>
+                <button id = 'perc' class="op" onclick="percent()"> <p>%</p> </button>
                 <button id = 'clear' class="op" onclick="ac()"> <p>AC</p> </button>
 
-                <button id = '7' class="num" onclick="add7()"> <p>7</p> </button>
-                <button id = '8' class="num" onclick="add8()"> <p>8</p> </button>
-                <button id = '9' class="num" onclick="add9()"> <p>9</p> </button>
-                <button id = 'div' class="op" onclick="div()"> <p>÷</p> </button>
+                <button id = '7' class="num" onclick="addVal('7')"> <p>7</p> </button>
+                <button id = '8' class="num" onclick="addVal('8')"> <p>8</p> </button>
+                <button id = '9' class="num" onclick="addVal('9')"> <p>9</p> </button>
+                <button id = 'div' class="op" onclick="operation('÷')"> <p>÷</p> </button>
 
-                <button id = '4' class="num" onclick="add4()"> <p>4</p> </button>
-                <button id = '5' class="num" onclick="add5()"> <p>5</p> </button>
-                <button id = '6' class="num" onclick="add6()"> <p>6</p> </button>
-                <button id = 'mult' class="op" onclick="mult()"> <p>×</p> </button>
+                <button id = '4' class="num" onclick="addVal('4')"> <p>4</p> </button>
+                <button id = '5' class="num" onclick="addVal('5')"> <p>5</p> </button>
+                <button id = '6' class="num" onclick="addVal('6')"> <p>6</p> </button>
+                <button id = 'mult' class="op" onclick="operation('×')"> <p>×</p> </button>
 
-                <button id = '1' class="num" onclick="add1()"> <p>1</p> </button>
-                <button id = '2' class="num" onclick="add2()"> <p>2</p> </button>
-                <button id = '3' class="num" onclick="add3()"> <p>3</p> </button>
-                <button id = 'sub' class="op" onclick="sub()"> <p>-</p> </button>
+                <button id = '1' class="num" onclick="addVal('1')"> <p>1</p> </button>
+                <button id = '2' class="num" onclick="addVal('2')"> <p>2</p> </button>
+                <button id = '3' class="num" onclick="addVal('3')"> <p>3</p> </button>
+                <button id = 'sub' class="op" onclick="operation('-')"> <p>-</p> </button>
 
-                <button id = '0' class="num" onclick="add0()"> <p>0</p> </button>
-                <button id = 'dec' class="num" onclick="addDec()"> <p>.</p> </button>
+                <button id = '0' class="num" onclick="addVal('0')"> <p>0</p> </button>
+                <button id = 'dec' class="num" onclick="addVal('.')"> <p>.</p> </button>
                 <button id = 'eq' onclick="equ()"> <p>=</p> </button>
-                <button id = 'add' class="op" onclick="add()"> <p>+</p> </button>
+                <button id = 'add' class="op" onclick="operation('+')"> <p>+</p> </button>
             </section>
         </section>
     </main>
