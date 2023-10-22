@@ -79,3 +79,49 @@ html{
     font-size: 15px;
 
 }
+
+@media screen and (max-width:650px){ /* Resizing for phone screens */
+    #grid{
+        grid-template-columns: 100px 100px 100px 100px;
+        grid-template-rows: 50px 50px 50px 50px 50px;
+    }
+    
+    #cont{
+        max-width: 405px;
+    }
+
+    .num{
+        width: 100px;
+    }
+
+    .op{
+        width: 100px;
+    }
+
+    #eq{
+        width: 100px;
+    }
+}
+
+@media screen and (max-width:450px){ /* Resizing for phone screens */
+    #grid{
+        grid-template-columns: 50px 50px 50px 50px;
+        grid-template-rows: 50px 50px 50px 50px 50px;
+    }
+    
+    #cont{
+        max-width: 205px;
+    }
+
+    .num{
+        width: 50px;
+    }
+
+    .op{
+        width: 50px;
+    }
+
+    #eq{
+        width: 50px;
+    }
+}
