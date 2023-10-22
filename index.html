@@ -10,15 +10,15 @@
 <body>
     <main>
         <section id = 'cont'>
-            <figure id = 'disp'>
+            <figure id = 'disp'> <!-- Display -->
                 <p id = 'up'></p>
-                <p id = 'quest'>0</p>
+                <input type="text" id="quest" name="quest" placeholder="0">
             </figure>
 
-            <section id = grid>
+            <section id = grid> <!-- Button Grid -->
                 <button id = 'leftP' class="op" onclick="addVal('(')"> <p>(</p> </button>
                 <button id = 'rightP' class="op" onclick="addVal(')')"> <p>)</p> </button>
-                <button id = 'perc' class="op" onclick="percent()"> <p>%</p> </button>
+                <button id = 'perc' class="op" onclick="neg()"> <p>+/-</p> </button>
                 <button id = 'clear' class="op" onclick="ac()"> <p>AC</p> </button>
 
                 <button id = '7' class="num" onclick="addVal('7')"> <p>7</p> </button>
