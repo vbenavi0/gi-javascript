@@ -5,7 +5,6 @@ let string3 = ""; //String to be evaluated
 let string4 = ""; //Solution String
 let nums = []; //Array for building equation
 
-
 function ac(){ //Clear Function
     if(document.getElementById("clear").innerHTML === "C"){ //Soft Clear if button is displayed "C"
         document.getElementById("quest").value = string4;
@@ -140,10 +139,10 @@ function neg(){ //Function for putting negative numbers on screen using button
 
 function equ(){ //Function for solving problem on screen
     if((document.getElementById("quest").value+" ").includes('/0 ')){ //Divide by 0 handling
-        document.getElementById("quest").value = 'Error';
+        document.getElementById("quest").value = 'Error'; //Display Error
     }
     if((document.getElementById("quest").value).endsWith('-')||(document.getElementById("quest").value).endsWith('+')||(document.getElementById("quest").value).endsWith('*')||(document.getElementById("quest").value).endsWith('/')){ //Divide by 0 handling
-        document.getElementById("quest").value = 'Error';
+        document.getElementById("quest").value = 'Error'; //Display Error
     }
     else if(document.getElementById("quest").value===""){ //If no initial input
         string4 = '0'
@@ -160,10 +159,10 @@ function equ(){ //Function for solving problem on screen
             string3 += nums[i];
         }
         console.log("text input");
-        string4 = (eval(string3));
-        document.getElementById("up").innerHTML = string0 + " = "+ string4;
-        document.getElementById("quest").value = string4;
-        nums.push(string4);
+        string4 = (eval(string3)); //Solve for equation string
+        document.getElementById("up").innerHTML = string0 + " = "+ string4; //Format & display equation string & solution
+        document.getElementById("quest").value = string4; //Display solution
+        nums.push(string4); //Saves solution
         string3="";
         string1 = string4;
         string0 = string4;
@@ -181,10 +180,10 @@ function equ(){ //Function for solving problem on screen
             string3 += nums[i];
         }
         console.log("button input");
-        string4 = (eval(string3));
-        document.getElementById("up").innerHTML = string0 + " = "+ string4;
-        document.getElementById("quest").value = string4;
-        nums.push(string4);
+        string4 = (eval(string3)); //Solve for equation string
+        document.getElementById("up").innerHTML = string0 + " = "+ string4; //Format & display equation string & solution
+        document.getElementById("quest").value = string4; //Display solution
+        nums.push(string4); //Saves solution
         string3="";
         string1 = string4;
         string0 = string4;
