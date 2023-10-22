@@ -7,7 +7,7 @@ let nums = []; //Array for building equation
 
 
 function ac(){ //Clear Function
-    if(document.getElementById("clear").innerHTML === "C"){ //Soft Clear
+    if(document.getElementById("clear").innerHTML === "C"){ //Soft Clear if button is displayed "C"
         document.getElementById("quest").value = string4;
         string0 = string4;
         string1 = string4;
@@ -20,7 +20,7 @@ function ac(){ //Clear Function
         document.getElementById("clear").innerHTML = "AC"
         console.log('Clear');
     }
-    else{ //Clear All
+    else{ //Clear All if button is displayed "AC"
         string0 = "";
         string1 = "0";
         string2 = "0";
@@ -35,7 +35,7 @@ function ac(){ //Clear Function
 }
 
 function addVal(val){ //Function for putting numbers on screen using buttons
-    if(string1 === string4){
+    if(document.getElementById("quest").value === 'Error'){ //If error is on screen
         string0 = val;
         string1 = val;
         string2 = val;
@@ -44,28 +44,44 @@ function addVal(val){ //Function for putting numbers on screen using buttons
         document.getElementById("clear").innerHTML = "C";
         console.log("Reset");
     }
-    else if(document.getElementById("quest").value === 'Error'){
-        string0 = val;
-        string1 = val;
-        string2 = val;
-        string3 = "";
-        nums = [];
-        document.getElementById("clear").innerHTML = "C";
-        console.log("Reset");
-    }
-    else if((document.getElementById("quest").placeholder === "0" && val != '0')){
-        document.getElementById("clear").innerHTML = "C";
-        string0 = val;
-        string1 = val;
-        string2 = val;
-    }
-    else if(document.getElementById("quest").value != "0" && val != '0'){
+    else if(((document.getElementById("quest").value).startsWith('-'))){ //If input starts with neg number
         document.getElementById("clear").innerHTML = "C";
         string0 += val;
         string1 += val;
         string2 += val;
     }
-    else if(document.getElementById("quest").value === "0" && val === '0'){
+    else if((document.getElementById("quest").value === "" && val != '0')){ //Initial Input
+        document.getElementById("clear").innerHTML = "C";
+        string0 = val;
+        string1 = val;
+        string2 = val;
+        console.log('initial');
+    }
+    else if(document.getElementById("quest").value != string1){ //Text & Button Input
+        document.getElementById("clear").innerHTML = "C";
+        string0 = document.getElementById("quest").value
+        string2 = document.getElementById("quest").value
+        nums = [];
+        nums.push(string2);
+        console.log('text and button');
+    }
+    else if(string1 === string4){ //If Input when solution is already displayed
+        string0 = val;
+        string1 = val;
+        string2 = val;
+        string3 = "";
+        nums = [];
+        document.getElementById("clear").innerHTML = "C";
+        console.log("Reset");
+    }
+    else if(document.getElementById("quest").value != "0" && val != '0'){ //Input for adding numbers to equation
+        document.getElementById("clear").innerHTML = "C";
+        string0 += val;
+        string1 += val;
+        string2 += val;
+        console.log('additional input');
+    }
+    else if(document.getElementById("quest").value === "0" && val === '0'){ //Input for 0 on 0
         document.getElementById("clear").innerHTML = "C";
         string0 += "0"
         nums = [];
@@ -80,23 +96,29 @@ function addVal(val){ //Function for putting numbers on screen using buttons
 }
 
 function operation(op){ //Function for putting operators on screen using buttons
-    nums.push(string2);
-    if(op === "×"){
+    nums = [];
+    if(document.getElementById("quest").value === ''){
+        document.getElementById("quest").value = '0';
+    }
+    nums.push(document.getElementById("quest").value);
+    string1 = document.getElementById("quest").value;
+
+    if(op === "×"){ //Multiplication
         nums.push("*");
         string0 += "*";
         string1 += "*";
     }
-    else if(op === "÷"){
+    else if(op === "÷"){ //Division
         nums.push("/");
         string0 += "/";
         string1 += "/";
     }
-    else if(op === "+"){
+    else if(op === "+"){ //Addition
         nums.push("+");
         string0 += "+";
         string1 += "+";
     }
-    else if(op === "-"){
+    else if(op === "-"){ //Subtraction
         nums.push("-");
         string0 += "-";
         string1 += "-";
@@ -113,18 +135,23 @@ function neg(){ //Function for putting negative numbers on screen using button
     else{
         document.getElementById("quest").value = "-" +document.getElementById("quest").value;
     }
+    string1 = document.getElementById("quest").value;
 }
 
 function equ(){ //Function for solving problem on screen
     if((document.getElementById("quest").value+" ").includes('/0 ')){ //Divide by 0 handling
         document.getElementById("quest").value = 'Error';
     }
-    else if(document.getElementById("quest").placeholder==="0"){
+    if((document.getElementById("quest").value).endsWith('-')||(document.getElementById("quest").value).endsWith('+')||(document.getElementById("quest").value).endsWith('*')||(document.getElementById("quest").value).endsWith('/')){ //Divide by 0 handling
+        document.getElementById("quest").value = 'Error';
+    }
+    else if(document.getElementById("quest").value===""){ //If no initial input
         string4 = '0'
         document.getElementById("up").innerHTML = string4;
         document.getElementById("quest").value = string4;
+        console.log("No Input");
     }
-    else if(string1 != document.getElementById("quest").value){ //Solve for text input
+    else if(string1 != document.getElementById("quest").value){ //Solve for text input using array
         nums = [];
         string0 = document.getElementById("quest").value;
         string2 = document.getElementById("quest").value;
@@ -145,7 +172,7 @@ function equ(){ //Function for solving problem on screen
         }
         document.getElementById("clear").innerHTML = "AC"
     }
-    else if(string1!=string4){ //Solve for button input
+    else if(string1!=string4){ //Solve for button input using array
         nums = [];
         string0 = document.getElementById("quest").value;
         string2 = document.getElementById("quest").value;
@@ -166,8 +193,9 @@ function equ(){ //Function for solving problem on screen
         }
         document.getElementById("clear").innerHTML = "AC"
     }
-    else{
+    else{ //Output for no input
         document.getElementById("up").innerHTML = string4;
         document.getElementById("quest").value = string4;
+        console.log("Nothing");
     }
 }
