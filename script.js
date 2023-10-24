@@ -141,7 +141,7 @@ function equ(){ //Function for solving problem on screen
     if((document.getElementById("quest").value+" ").includes('/0 ')){ //Divide by 0 handling
         document.getElementById("quest").value = 'Error'; //Display Error
     }
-    if((document.getElementById("quest").value).endsWith('-')||(document.getElementById("quest").value).endsWith('+')||(document.getElementById("quest").value).endsWith('*')||(document.getElementById("quest").value).endsWith('/')){ //Divide by 0 handling
+    else if((document.getElementById("quest").value).endsWith('-')||(document.getElementById("quest").value).endsWith('+')||(document.getElementById("quest").value).endsWith('*')||(document.getElementById("quest").value).endsWith('/')){ //Divide by 0 handling
         document.getElementById("quest").value = 'Error'; //Display Error
     }
     else if(document.getElementById("quest").value===""){ //If no initial input
